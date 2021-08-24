@@ -56,7 +56,7 @@ class ClienteController{
         },
       });
       client.connect();
-      const result = await client.query("DELETE FROM public.agendamento WHERE cpf=$1", [cpf]);
+      const result = await client.query("DELETE FROM public.cliente WHERE cpf=$1", [cpf]);
       client.end();
       const results = result.rows;
       return results;
@@ -73,7 +73,7 @@ class ClienteController{
         },
       });
       client.connect();
-      const result = await client.query("UPDATE public. SET nome=$1, sobrenome=$2, telefone=$3,  WHERE cpf =$4;",
+      const result = await client.query("UPDATE public.cliente SET nome=$1, sobrenome=$2, telefone=$3,  WHERE cpf =$4;",
       [nome,sobrenome,telefone,cpf]);
       client.end();
       const results = result.rows;
@@ -98,7 +98,7 @@ class ClienteController{
         },
       });
       client.connect();
-      const result = await client.query("SELECT * FROM public.agendamento WHERE cpf= $1", [cpf]);
+      const result = await client.query("SELECT * FROM public.cliente WHERE cpf= $1", [cpf]);
       client.end();
       const results = result.rows;
       const response = {
