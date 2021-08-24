@@ -1,7 +1,7 @@
 const {Client} = require("pg")
 
 
-
+/*
 class ReservaController{
   async index(){
     try{
@@ -121,7 +121,7 @@ module.exports = ReservaController;
 
 
 
-
+*/
 
 
 
