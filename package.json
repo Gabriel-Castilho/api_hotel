@@ -1,0 +1,23 @@
+{
+  "name": "apihotel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabriel-Castilho/api_hotel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gabriel-Castilho/api_hotel/issues"
+  },
+  "homepage": "https://github.com/Gabriel-Castilho/api_hotel#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "router": "^1.3.5"
+  }
+}
