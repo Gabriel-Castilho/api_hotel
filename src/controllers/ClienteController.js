@@ -118,7 +118,7 @@ class ClienteController{
 }
 
 
-module.exports = ReservaController;
+module.exports = ClienteController;
 
 
 
