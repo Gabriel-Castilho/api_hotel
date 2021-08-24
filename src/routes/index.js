@@ -1,11 +1,12 @@
 const {Router}= require("express")
-//const reservaRouter = require("./reserva.routes")
+const servicoRouter = require("./servicos.routes")
 const clienteRouter = require("./cliente.routes")
-
+const estadiaRouter = require("./estadia.routes")
 const routes = Router();
 
-//routes.use("/reserva",reservaRouter)
+routes.use("/servico",servicoRouter)
 routes.use("/cliente",clienteRouter)
+routes.use("/estadia",estadiaRouter)
 
 
 

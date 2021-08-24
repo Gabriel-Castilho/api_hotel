@@ -1,8 +1,8 @@
 const {Client} = require("pg")
 
 
-/*
-class ReservaController{
+
+class EstadiaController{
   async index(){
     try{
       const client = new Client({
@@ -12,7 +12,7 @@ class ReservaController{
         }, 
       });
       client.connect();
-      const result = await client.query("SELECT * FROM public.agendamento;");
+      const result = await client.query("SELECT * FROM public.estadia;");
       client.end();
       const results = result.rows;
       return results;
@@ -21,7 +21,7 @@ class ReservaController{
       return res.json(err)
     }
   }
-  async create(idClientes,horario,data_atendimento,id_servico,adicional){
+  async create(cpf,ocupantes,dataEntrada,dataSaida){
     try{
       const client = new Client({
         connectionString:process.env.DATABASE_URL,
@@ -29,9 +29,10 @@ class ReservaController{
           rejectUnauthorized:false
         },
       });
+
       client.connect();
-      const result = await client.query("INSERT INTO public.agendamneto (id_clientes, horario, data_atendimento, id_servico, adicional) VALUES($1,$2,$3,$4,$5);",
-      [idClientes, horario, data_atendimento, id_servico,adicional])
+      const result = await client.query("INSERT INTO public.estadia (cpf,n_ocupantes,data_entrada,data_saida) VALUES($1,$2,$3,$4);",
+      [cpf,ocupantes,dataEntrada,dataSaida])
       client.end();
       const results = result.rows;
       const response = {
@@ -46,7 +47,7 @@ class ReservaController{
       return response;
     }
   }
-  async delete(id){
+  async delete(cpf){
     try{
       const client = new Client({
         connectionString:process.env.DATABASE_URL,
@@ -55,7 +56,7 @@ class ReservaController{
         },
       });
       client.connect();
-      const result = await client.query("DELETE FROM public.agendamento WHERE id_agendamento=$1", [id]);
+      const result = await client.query("DELETE FROM public.estadia WHERE cpf=$1", [cpf]);
       client.end();
       const results = result.rows;
       return results;
@@ -63,7 +64,7 @@ class ReservaController{
       return res.json(err)
     }
   }
-  async update(id_cliente,horario,data_atendimento,id_servico,adicional,id_agendamento){
+  async update(ocupantes,dataEntrada,dataSaida,cpf){
     try{
       const client = new Client({
         connectionString:process.env.DATABASE_URL,
@@ -72,8 +73,7 @@ class ReservaController{
         },
       });
       client.connect();
-      const result = await client.query("UPDATE public. SET id_cliente=$1, horario=$2, data_atendimento=$3, id_servico=$4, adicional=$5 WHERE id_agendamento=$6;",
-      [id_cliente, horario, data_atendimento, id_servico,adicional,id_agendamento]);
+      const result = await client.query("UPDATE public.estadia SET n_ocupantes=$2, data_entrada=$3, data_saida=$4 WHERE cpf =$3;",[ocupantes,dataEntrada,dataSaida,cpf]);
       client.end();
       const results = result.rows;
       const response = {
@@ -88,7 +88,7 @@ class ReservaController{
       return response;
     }
   }
-  async getId(id){
+  async getId(cpf){
     try{
       const client = new Client({
         connectionString:process.env.DATABASE_URL,
@@ -97,14 +97,14 @@ class ReservaController{
         },
       });
       client.connect();
-      const result = await client.query("SELECT * FROM public.agendamento WHERE id_agendamento = $1", [id]);
+      const result = await client.query("SELECT * FROM public.estadia WHERE cpf= $1", [cpf]);
       client.end();
       const results = result.rows;
       const response = {
         message:"achou"
       }
       return response;
-    }catch(err){
+    }catch(err){ 
       console.error(err)
       const response={
         message:"erro"
@@ -117,11 +117,11 @@ class ReservaController{
 }
 
 
-module.exports = ReservaController;
+module.exports = EstadiaController;
 
 
 
-*/
+
 
 
 
