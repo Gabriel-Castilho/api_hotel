@@ -34,4 +34,4 @@ clienteRouter.patch("/:cpf",async(req,res)=>{
     return res.json(items)
 })
 
-module.exports=clienteController
+module.exports=clienteRouter
