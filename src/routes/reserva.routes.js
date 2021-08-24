@@ -1,4 +1,5 @@
 const {Router} = require("express")
+/*
 const ReservaController = require("../controllers/ReservaController")
 
 const reservaoRouter = Router();
@@ -38,3 +39,5 @@ agendamentoRouter.patch("/:id",async(req,res)=>{
 })
 
 module.exports=agendamentoRouter
+
+*/
