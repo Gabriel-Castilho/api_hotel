@@ -105,7 +105,7 @@ class ClienteController{
         message:"achou"
       }
       return response;
-    }catch(err){
+    }catch(err){ 
       console.error(err)
       const response={
         message:"erro"
