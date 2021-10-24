@@ -101,6 +101,7 @@ class ClienteController{
       const result = await client.query("SELECT * FROM public.cliente WHERE cpf= $1", [cpf]);
       client.end();
       const results = result.rows;
+      return results;
       const response = {
         message:"achou"
       }
