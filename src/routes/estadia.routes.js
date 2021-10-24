@@ -11,7 +11,7 @@ estadiaRouter.get("/",async (req,res)=>{
 
 estadiaRouter.post("/",async(req,res)=>{
     const{cpf,data_entrada,data_saida,ocupantes} = req.body
-    const items = await estadiaController.create(cpf,data_entrada,data_saida,ocupantes)
+    const items = await estadiaController.create(cpf,ocupantes,data_entrada,data_saida)
     return res.json(items)
 })
 
