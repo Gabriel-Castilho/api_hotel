@@ -10,8 +10,8 @@ estadiaRouter.get("/",async (req,res)=>{
 })
 
 estadiaRouter.post("/",async(req,res)=>{
-    const{nome,sobrenome,telefone,cpf} = req.body
-    const items = await estadiaController.create(nome,sobrenome,telefone,cpf)
+    const{cpf,data_entrada,data_saida,ocupantes} = req.body
+    const items = await estadiaController.create(cpf,data_entrada,data_saida,ocupantes)
     return res.json(items)
 })
 
