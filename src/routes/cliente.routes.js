@@ -6,24 +6,35 @@ const clienteController = new ClienteController();
 
 clienteRouter.get("/", async (req, res) => {
     const items = await clienteController.index()
-    return res.json(items)
+        if(message == 'erro'){
+            console.log('aaaaaaaa')
+        }    
+    return res.json(items) 
 })
 
 clienteRouter.post("/", async (req, res) => {
     const { nome, sobrenome, telefone, cpf } = req.body
     const items = await clienteController.create(nome, sobrenome, telefone, cpf)
+    if(items =='message:"erro"'){
+        res.status(422).json('cpf já cadastrado')
+    }
+    return res.json(items)
+})
+
+/*
+clienteRouter.post("/", async (req, res) => {
+    const { nome, sobrenome, telefone, cpf } = req.body
+    const items = await clienteController.create(nome, sobrenome, telefone, cpf)
     if (res.status(422).json({ 'message': 'erro' })) {
-        console.log('will q falou')
-        res.status(422).send('CPF Já cadastrado')
     } else {
         return res.json(items)
     }
-})
+}) */
 
 clienteRouter.delete("/:cpf", async (req, res) => {
     const { cpf } = req.params
     const items = await clienteController.delete(cpf)
-    return res.json(items)
+        return res.json(items)
 })
 
 clienteRouter.get("/:cpf", async (req, res) => {
@@ -31,7 +42,7 @@ clienteRouter.get("/:cpf", async (req, res) => {
     const items = await clienteController.getId(cpf)
     if (items == "") {
         res.sendStatus(404)
-    } else {
+    } else {   
         return res.json(items)
     }
 })
