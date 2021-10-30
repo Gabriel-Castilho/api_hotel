@@ -18,7 +18,11 @@ clienteRouter.post("/",async(req,res)=>{
 clienteRouter.delete("/:cpf",async(req,res)=>{
     const {cpf} = req.params
     const items = await clienteController.delete(cpf)
-    return res.json(items)
+    if(items != undefined || items != '' || items != []){
+        return res.json(items)
+    }else{
+        res.sendStatus(404)
+    }
 })
 
 clienteRouter.get("/:cpf",async(req,res)=>{
