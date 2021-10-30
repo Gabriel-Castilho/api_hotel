@@ -6,9 +6,6 @@ const clienteController = new ClienteController();
 
 clienteRouter.get("/", async (req, res) => {
     const items = await clienteController.index()
-        if(message == 'erro'){
-            console.log('aaaaaaaa')
-        }    
     return res.json(items) 
 })
 
