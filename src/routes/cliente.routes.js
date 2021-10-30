@@ -6,11 +6,7 @@ const clienteController = new ClienteController();
 
 clienteRouter.get("/", async (req, res) => {
     const items = await clienteController.index()
-    if (items != undefined || items != '' || items != []) {
-        return res.json(items)
-    } else {
-        res.status(404)
-    }
+        return res.json(items) 
 })
 
 clienteRouter.post("/", async (req, res) => {
@@ -22,10 +18,10 @@ clienteRouter.post("/", async (req, res) => {
 clienteRouter.delete("/:cpf", async (req, res) => {
     const { cpf } = req.params
     const items = await clienteController.delete(cpf)
-    if (items != undefined || items != '' || items != []) {
-        return res.json(items)
-    } else {
+    if (items == "") {
         res.sendStatus(404)
+    } else {
+        return res.json(items)
     }
 })
 
