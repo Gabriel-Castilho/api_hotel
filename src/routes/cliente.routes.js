@@ -32,10 +32,10 @@ debugger
 clienteRouter.get("/:cpf",async(req,res)=>{
     const {cpf}= req.params
     const items = await clienteController.getId(cpf)
-    if( items != []){
-        return res.json(items)
+    if( items == []){
+        return res.status(404)
     }else{
-        res.status(404)
+        return res.json(items)
     }
 })
 
