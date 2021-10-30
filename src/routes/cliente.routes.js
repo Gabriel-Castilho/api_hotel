@@ -6,7 +6,11 @@ const clienteController = new ClienteController();
 
 clienteRouter.get("/",async (req,res)=>{
     const items = await clienteController.index()
-    return res.json(items)
+    if(items != undefined || items != '' || items != []){
+        return res.json(items)
+    }else{
+        res.sendStatus(404)
+    }
 })
 
 clienteRouter.post("/",async(req,res)=>{
