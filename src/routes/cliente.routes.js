@@ -9,7 +9,7 @@ clienteRouter.get("/",async (req,res)=>{
     if(items != undefined || items != '' || items != []){
         return res.json(items)
     }else{
-        res.sendStatus(404)
+        res.status(404)
     }
 })
 
