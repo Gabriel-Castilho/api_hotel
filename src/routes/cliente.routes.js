@@ -34,8 +34,7 @@ clienteRouter.get("/:cpf", async (req, res) => {
     const items = await clienteController.getId(cpf)
     if (items == "") {
         res.sendStatus(404)
-    } else {
-      
+    } else {   
         return res.json(items)
     }
 })
