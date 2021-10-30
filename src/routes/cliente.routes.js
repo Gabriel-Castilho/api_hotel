@@ -13,6 +13,7 @@ clienteRouter.post("/", async (req, res) => {
     const { nome, sobrenome, telefone, cpf } = req.body
     const items = await clienteController.create(nome, sobrenome, telefone, cpf)
     if(items =='message:"erro"'){
+        console.log('error')
         res.status(422).json('cpf já cadastrado')
     }
     return res.json(items)
