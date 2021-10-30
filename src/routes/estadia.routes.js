@@ -18,7 +18,12 @@ estadiaRouter.post("/",async(req,res)=>{
 estadiaRouter.delete("/:cpf",async(req,res)=>{
     const {cpf} = req.params
     const items = await estadiaController.delete(cpf)
-    return res.json(items)
+    if(items != undefined || items != '' || items != []){
+        return res.json(items)
+    }else{
+        res.sendStatus(404)
+    }
+    
 })
 
 estadiaRouter.get("/:cpf",async(req,res)=>{

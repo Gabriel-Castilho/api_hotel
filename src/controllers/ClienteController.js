@@ -102,10 +102,6 @@ class ClienteController{
       client.end();
       const results = result.rows;
       return results;
-      const response = {
-        message:"achou"
-      }
-      return response;
     }catch(err){ 
       console.error(err)
       const response={
