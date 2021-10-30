@@ -13,8 +13,9 @@ clienteRouter.post("/", async (req, res) => {
     const { nome, sobrenome, telefone, cpf } = req.body
     const items = await clienteController.create(nome, sobrenome, telefone, cpf)
     if (res.json({ 'message': 'erro' })) {
-        //console.log('teste')
-        res.status(422)
+        console.log('teste')
+        //res.json.sendStatus(422)
+        res.status(422).json('error')
     } else {
         return res.json(items)
     }
