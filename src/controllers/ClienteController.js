@@ -1,3 +1,4 @@
+const { response } = require("express");
 const {Client} = require("pg")
 
 
@@ -61,8 +62,13 @@ class ClienteController{
       const results = result.rows;
       return results;
     }catch(err){
-      return res.json(err)
+      console.log(err)
+      const response = {
+        message:'erro'
+      }
+      return response;
     }
+  
   }
   async update(nome,sobrenome,telefone,cpf){
     try{
