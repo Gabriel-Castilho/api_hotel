@@ -32,10 +32,10 @@ clienteRouter.delete("/:cpf", async (req, res) => {
 clienteRouter.get("/:cpf", async (req, res) => {
     const { cpf } = req.params
     const items = await clienteController.getId(cpf)
-    if (items != '') {
+    if (items != []) {
         return res.json(items)
     } else {
-        return res.status(404)
+        res.sendStatus(404)
     }
 })
 
