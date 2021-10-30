@@ -35,7 +35,7 @@ clienteRouter.get("/:cpf", async (req, res) => {
     if (items != []) {
         return res.json(items)
     } else {
-        res.sendStatus(404)
+        res.status(404).json('Not Found')
     }
 })
 
